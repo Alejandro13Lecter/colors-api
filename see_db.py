@@ -21,7 +21,13 @@ try:
     df2 = df[["id", "name", "color"]]
     colores = df2.apply(lambda x: x.to_json(), axis=1)
     
-    print(colores[0])
+    
+    response = []
+    for x in range(len(colores)):
+        response.append(colores[x])
+    
+    print(response)
+        
 
 except (Exception, sqlite3.Error) as error :
     if(conn):
