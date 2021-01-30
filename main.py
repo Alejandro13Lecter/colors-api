@@ -1,8 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jan 30 11:32:25 2021
+
+@author: rob
+"""
+
 from flask import Flask, jsonify, render_template
 from flask_restful import Resource, Api
 from flask_cors import cross_origin
 
-# importamos la clase para el punto de acceso desde el otro archivo
+
 from Controllers import registro_color
 
 
