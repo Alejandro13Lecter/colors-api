@@ -8,15 +8,20 @@ Created on Sat Jan 30 12:30:53 2021
 import sqlite3
 import pandas as pd
 
+"""Test if the database was created and
+see its content whenever is required"""
 
 try:
-    conn = sqlite3.connect('colores.db')
-    c = conn.cursor()
-    colores_query = "SELECT * FROM colores_api"
-    c.execute(colores_query)
-    conn.commit()
-    result = c.fetchall()
-    print(result)
+    conn = sqlite3.connect('colores.db') 
+    df = pd.read_sql_query("SELECT * FROM colores_api", conn)
+    print(df)
+    
+    
+    
+    df2 = df[["id", "name", "color"]]
+    colores = df2.apply(lambda x: x.to_json(), axis=1)
+    
+    print(colores[0])
 
 except (Exception, sqlite3.Error) as error :
     if(conn):
@@ -25,10 +30,7 @@ except (Exception, sqlite3.Error) as error :
         print("No connection", error)
             
 if(conn):
-    print ("Data processed and saved")
-    print("Commit done........")
 
-    c.close()
     conn.close()
     print("Connection is closed")
 
