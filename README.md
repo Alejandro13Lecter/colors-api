@@ -1,6 +1,16 @@
 # Colors-api
 Api para proveer acceso fácil a los colores dentro de una organización.
 
+Muestra colores totaltes, por id y permite agregar colores.
+
+
+# Tecnologías
+Flask
+
+SQLite
+
+Docker
+
 ## Instalación
 Instalar con pip
 ```
