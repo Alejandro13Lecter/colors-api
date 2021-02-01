@@ -39,8 +39,11 @@ $ python app.py
 ```
 
 La aplicación aparecerá en la dirección http://localhost:5000/.
-La ruta http://localhost:5000/colores muestra en un json todos los colores de la base de datos
-La ruta http://localhost:5000/colores/:id muestra en un json un solo recurso de acuerdo al ID que se especifica
+
+La ruta http://localhost:5000/colores muestra en un json todos los colores de la base de datos.
+
+La ruta http://localhost:5000/colores/:id muestra en un json un solo recurso de acuerdo al ID que se especifica.
+
 La ruta http://localhost:5000/registro_color tiene método GET que muestra que el proyecto está corrienod correctamente
 y un método POST el cual requiere un json con los campos name (string), year (int), color (string) y pantone (string).
 Este registro agrega el color a la base de datos. Se puede probar con una herramienta como Postman.
@@ -53,7 +56,7 @@ $ docker build -t colors-api .
 ```
 
 ```
-$ docker run -p 5000:5000 --name colors-api colors-api 
+$ docker run -p 5000:5000 --name colors-api 
 ```
 
 ## Github
