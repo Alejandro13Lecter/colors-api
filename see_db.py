@@ -12,21 +12,13 @@ import pandas as pd
 see its content whenever is required"""
 
 try:
-    conn = sqlite3.connect('colores.db') 
+    #connect to database
+    conn = sqlite3.connect('colores.db')
+    #convert the table of the db to a dataframe for easier manipulation
     df = pd.read_sql_query("SELECT * FROM colores_api", conn)
+    #show it in console
     print(df)
     
-    
-    
-    df2 = df[["id", "name", "color"]]
-    colores = df2.apply(lambda x: x.to_json(), axis=1)
-    
-    
-    response = []
-    for x in range(len(colores)):
-        response.append(colores[x])
-    
-    print(response)
         
 
 except (Exception, sqlite3.Error) as error :
@@ -39,4 +31,3 @@ if(conn):
 
     conn.close()
     print("Connection is closed")
-
